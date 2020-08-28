@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f4a9cfa7f65346b9b9506f09003ab004" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="FeriaModel.ADMINISTRADOR" Width="1.5" PointX="18.125" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.CANTON" Width="1.5" PointX="2.875" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.CLIENTE" Width="1.5" PointX="7.375" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.DISTRITO" Width="1.5" PointX="5.125" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.FACTURACION" Width="1.5" PointX="9.625" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.PRODUCTO" Width="1.5" PointX="9.625" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.PROVINCIA" Width="1.5" PointX="0.625" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.sysdiagrams" Width="1.5" PointX="0.625" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.TIPO_PAGO" Width="1.5" PointX="5.125" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.TIPO_VEHICULO" Width="1.5" PointX="12.625" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.TRANSPORTISTA" Width="1.5" PointX="15.875" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.VEHICULO" Width="1.5" PointX="13.625" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeriaModel.VENDEDOR" Width="1.5" PointX="7.375" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="FeriaModel.FK_CANTON_PROVINCIA" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_DISTRITO_CANTON" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_CLIENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_FACTURACION2" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_DISTRITO_PROVINCIA" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_TRANSPORTISTA1" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_VENDEDOR2" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_FACTURACION" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_FACTURACION3" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_FACTURACION4" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_FACTURACION5" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_PRODUCTO" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_VENDEDOR1" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_VEHICULO" ManuallyRouted="false" />
+        <AssociationConnector Association="FeriaModel.FK_TRANSPORTISTA2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FeriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADMINISTRADOR">
+    <Key>
+      <PropertyRef Name="CEDULA" />
+    </Key>
+    <Property Name="CEDULA" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TELEFONO" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="USUARIO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTRASENA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ROL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CANTON">
+    <Key>
+      <PropertyRef Name="ID_CANTON" />
+    </Key>
+    <Property Name="ID_CANTON" Type="Decimal" Precision="2" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE_CANTON" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_PROVINCIA" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <NavigationProperty Name="PROVINCIA" Relationship="Self.FK_CANTON_PROVINCIA" FromRole="CANTON" ToRole="PROVINCIA" />
+    <NavigationProperty Name="DISTRITO" Relationship="Self.FK_DISTRITO_CANTON" FromRole="CANTON" ToRole="DISTRITO" />
+  </EntityType>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="CEDULA" />
+    </Key>
+    <Property Name="CEDULA" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TELEFONO" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="USUARIO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTRASENA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_DISTRITO" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="ROL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DISTRITO" Relationship="Self.FK_CLIENTE" FromRole="CLIENTE" ToRole="DISTRITO" />
+    <NavigationProperty Name="FACTURACION" Relationship="Self.FK_FACTURACION2" FromRole="CLIENTE" ToRole="FACTURACION" />
+  </EntityType>
+  <EntityType Name="DISTRITO">
+    <Key>
+      <PropertyRef Name="ID_DISTRITO" />
+    </Key>
+    <Property Name="ID_DISTRITO" Type="Decimal" Precision="2" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE_DISTRITO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_PROVINCIA" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="ID_CANTON" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <NavigationProperty Name="CANTON" Relationship="Self.FK_DISTRITO_CANTON" FromRole="DISTRITO" ToRole="CANTON" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK_CLIENTE" FromRole="DISTRITO" ToRole="CLIENTE" />
+    <NavigationProperty Name="PROVINCIA" Relationship="Self.FK_DISTRITO_PROVINCIA" FromRole="DISTRITO" ToRole="PROVINCIA" />
+    <NavigationProperty Name="TRANSPORTISTA" Relationship="Self.FK_TRANSPORTISTA1" FromRole="DISTRITO" ToRole="TRANSPORTISTA" />
+    <NavigationProperty Name="VENDEDOR" Relationship="Self.FK_VENDEDOR2" FromRole="DISTRITO" ToRole="VENDEDOR" />
+  </EntityType>
+  <EntityType Name="FACTURACION">
+    <Key>
+      <PropertyRef Name="ID_FACTURACION" />
+    </Key>
+    <Property Name="ID_FACTURACION" Type="Decimal" Precision="9" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID_VENDEDOR" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="ID_CLIENTE" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="DIRECCION_ENTREGA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_TRANSPORTISTA" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="DETALLE_ENTREGA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_PRODUCTO" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="COD_PAGO" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="TOTAL" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK_FACTURACION2" FromRole="FACTURACION" ToRole="CLIENTE" />
+    <NavigationProperty Name="VENDEDOR" Relationship="Self.FK_FACTURACION" FromRole="FACTURACION" ToRole="VENDEDOR" />
+    <NavigationProperty Name="TRANSPORTISTA" Relationship="Self.FK_FACTURACION3" FromRole="FACTURACION" ToRole="TRANSPORTISTA" />
+    <NavigationProperty Name="PRODUCTO" Relationship="Self.FK_FACTURACION4" FromRole="FACTURACION" ToRole="PRODUCTO" />
+    <NavigationProperty Name="TIPO_PAGO" Relationship="Self.FK_FACTURACION5" FromRole="FACTURACION" ToRole="TIPO_PAGO" />
+  </EntityType>
+  <EntityType Name="PRODUCTO">
+    <Key>
+      <PropertyRef Name="ID_PRODUCTO" />
+    </Key>
+    <Property Name="ID_PRODUCTO" Type="Decimal" Precision="10" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE_PRODUCTO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRECIO_KILO" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="PRECIO_UNIDAD" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="ID_VENDEDOR" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+    <NavigationProperty Name="FACTURACION" Relationship="Self.FK_FACTURACION4" FromRole="PRODUCTO" ToRole="FACTURACION" />
+    <NavigationProperty Name="VENDEDOR" Relationship="Self.FK_PRODUCTO" FromRole="PRODUCTO" ToRole="VENDEDOR" />
+  </EntityType>
+  <EntityType Name="PROVINCIA">
+    <Key>
+      <PropertyRef Name="ID_PROVINCIA" />
+    </Key>
+    <Property Name="ID_PROVINCIA" Type="Decimal" Precision="2" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE_PROVINCIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CANTON" Relationship="Self.FK_CANTON_PROVINCIA" FromRole="PROVINCIA" ToRole="CANTON" />
+    <NavigationProperty Name="DISTRITO" Relationship="Self.FK_DISTRITO_PROVINCIA" FromRole="PROVINCIA" ToRole="DISTRITO" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TIPO_PAGO">
+    <Key>
+      <PropertyRef Name="COD_PAGO" />
+    </Key>
+    <Property Name="COD_PAGO" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="TIPO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="FACTURACION" Relationship="Self.FK_FACTURACION5" FromRole="TIPO_PAGO" ToRole="FACTURACION" />
+    <NavigationProperty Name="VENDEDOR" Relationship="Self.FK_VENDEDOR1" FromRole="TIPO_PAGO" ToRole="VENDEDOR" />
+  </EntityType>
+  <EntityType Name="TIPO_VEHICULO">
+    <Key>
+      <PropertyRef Name="ID_TIPO" />
+    </Key>
+    <Property Name="ID_TIPO" Type="Decimal" Precision="2" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="VEHICULO" Relationship="Self.FK_VEHICULO" FromRole="TIPO_VEHICULO" ToRole="VEHICULO" />
+  </EntityType>
+  <EntityType Name="TRANSPORTISTA">
+    <Key>
+      <PropertyRef Name="CEDULA" />
+    </Key>
+    <Property Name="CEDULA" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TELEFONO" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="USUARIO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTRASENA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_DISTRITO" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="HABILITADO" Type="Boolean" Nullable="false" />
+    <Property Name="TIPO_LICENCIA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_VEHICULO" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <NavigationProperty Name="DISTRITO" Relationship="Self.FK_TRANSPORTISTA1" FromRole="TRANSPORTISTA" ToRole="DISTRITO" />
+    <NavigationProperty Name="FACTURACION" Relationship="Self.FK_FACTURACION3" FromRole="TRANSPORTISTA" ToRole="FACTURACION" />
+    <NavigationProperty Name="VEHICULO" Relationship="Self.FK_TRANSPORTISTA2" FromRole="TRANSPORTISTA" ToRole="VEHICULO" />
+    <Property Name="ROL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VEHICULO">
+    <Key>
+      <PropertyRef Name="ID_VEHICULO" />
+    </Key>
+    <Property Name="ID_VEHICULO" Type="Decimal" Precision="2" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PLACA" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="MARCA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODELO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COLOR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_TIPO" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <NavigationProperty Name="TIPO_VEHICULO" Relationship="Self.FK_VEHICULO" FromRole="VEHICULO" ToRole="TIPO_VEHICULO" />
+    <NavigationProperty Name="TRANSPORTISTA" Relationship="Self.FK_TRANSPORTISTA2" FromRole="VEHICULO" ToRole="TRANSPORTISTA" />
+  </EntityType>
+  <EntityType Name="VENDEDOR">
+    <Key>
+      <PropertyRef Name="CEDULA" />
+    </Key>
+    <Property Name="CEDULA" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TELEFONO" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="USUARIO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTRASENA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_DISTRITO" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="HABILITADO" Type="Boolean" Nullable="false" />
+    <Property Name="ROL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COD_PAGO" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <NavigationProperty Name="DISTRITO" Relationship="Self.FK_VENDEDOR2" FromRole="VENDEDOR" ToRole="DISTRITO" />
+    <NavigationProperty Name="FACTURACION" Relationship="Self.FK_FACTURACION" FromRole="VENDEDOR" ToRole="FACTURACION" />
+    <NavigationProperty Name="PRODUCTO" Relationship="Self.FK_PRODUCTO" FromRole="VENDEDOR" ToRole="PRODUCTO" />
+    <NavigationProperty Name="TIPO_PAGO" Relationship="Self.FK_VENDEDOR1" FromRole="VENDEDOR" ToRole="TIPO_PAGO" />
+  </EntityType>
+  <Association Name="FK_CANTON_PROVINCIA">
+    <End Role="PROVINCIA" Type="Self.PROVINCIA" Multiplicity="1" />
+    <End Role="CANTON" Type="Self.CANTON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVINCIA">
+        <PropertyRef Name="ID_PROVINCIA" />
+      </Principal>
+      <Dependent Role="CANTON">
+        <PropertyRef Name="ID_PROVINCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DISTRITO_CANTON">
+    <End Role="CANTON" Type="Self.CANTON" Multiplicity="1" />
+    <End Role="DISTRITO" Type="Self.DISTRITO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CANTON">
+        <PropertyRef Name="ID_CANTON" />
+      </Principal>
+      <Dependent Role="DISTRITO">
+        <PropertyRef Name="ID_CANTON" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTE">
+    <End Role="DISTRITO" Type="Self.DISTRITO" Multiplicity="1" />
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISTRITO">
+        <PropertyRef Name="ID_DISTRITO" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="ID_DISTRITO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FACTURACION2">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="FACTURACION" Type="Self.FACTURACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CEDULA" />
+      </Principal>
+      <Dependent Role="FACTURACION">
+        <PropertyRef Name="ID_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DISTRITO_PROVINCIA">
+    <End Role="PROVINCIA" Type="Self.PROVINCIA" Multiplicity="1" />
+    <End Role="DISTRITO" Type="Self.DISTRITO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVINCIA">
+        <PropertyRef Name="ID_PROVINCIA" />
+      </Principal>
+      <Dependent Role="DISTRITO">
+        <PropertyRef Name="ID_PROVINCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSPORTISTA1">
+    <End Role="DISTRITO" Type="Self.DISTRITO" Multiplicity="1" />
+    <End Role="TRANSPORTISTA" Type="Self.TRANSPORTISTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISTRITO">
+        <PropertyRef Name="ID_DISTRITO" />
+      </Principal>
+      <Dependent Role="TRANSPORTISTA">
+        <PropertyRef Name="ID_DISTRITO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VENDEDOR2">
+    <End Role="DISTRITO" Type="Self.DISTRITO" Multiplicity="1" />
+    <End Role="VENDEDOR" Type="Self.VENDEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISTRITO">
+        <PropertyRef Name="ID_DISTRITO" />
+      </Principal>
+      <Dependent Role="VENDEDOR">
+        <PropertyRef Name="ID_DISTRITO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FACTURACION">
+    <End Role="VENDEDOR" Type="Self.VENDEDOR" Multiplicity="1" />
+    <End Role="FACTURACION" Type="Self.FACTURACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VENDEDOR">
+        <PropertyRef Name="CEDULA" />
+      </Principal>
+      <Dependent Role="FACTURACION">
+        <PropertyRef Name="ID_VENDEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FACTURACION3">
+    <End Role="TRANSPORTISTA" Type="Self.TRANSPORTISTA" Multiplicity="1" />
+    <End Role="FACTURACION" Type="Self.FACTURACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRANSPORTISTA">
+        <PropertyRef Name="CEDULA" />
+      </Principal>
+      <Dependent Role="FACTURACION">
+        <PropertyRef Name="ID_TRANSPORTISTA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FACTURACION4">
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+    <End Role="FACTURACION" Type="Self.FACTURACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="ID_PRODUCTO" />
+      </Principal>
+      <Dependent Role="FACTURACION">
+        <PropertyRef Name="ID_PRODUCTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FACTURACION5">
+    <End Role="TIPO_PAGO" Type="Self.TIPO_PAGO" Multiplicity="1" />
+    <End Role="FACTURACION" Type="Self.FACTURACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_PAGO">
+        <PropertyRef Name="COD_PAGO" />
+      </Principal>
+      <Dependent Role="FACTURACION">
+        <PropertyRef Name="COD_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUCTO">
+    <End Role="VENDEDOR" Type="Self.VENDEDOR" Multiplicity="1" />
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VENDEDOR">
+        <PropertyRef Name="CEDULA" />
+      </Principal>
+      <Dependent Role="PRODUCTO">
+        <PropertyRef Name="ID_VENDEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VENDEDOR1">
+    <End Role="TIPO_PAGO" Type="Self.TIPO_PAGO" Multiplicity="1" />
+    <End Role="VENDEDOR" Type="Self.VENDEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_PAGO">
+        <PropertyRef Name="COD_PAGO" />
+      </Principal>
+      <Dependent Role="VENDEDOR">
+        <PropertyRef Name="COD_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEHICULO">
+    <End Role="TIPO_VEHICULO" Type="Self.TIPO_VEHICULO" Multiplicity="1" />
+    <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_VEHICULO">
+        <PropertyRef Name="ID_TIPO" />
+      </Principal>
+      <Dependent Role="VEHICULO">
+        <PropertyRef Name="ID_TIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSPORTISTA2">
+    <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="1" />
+    <End Role="TRANSPORTISTA" Type="Self.TRANSPORTISTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICULO">
+        <PropertyRef Name="ID_VEHICULO" />
+      </Principal>
+      <Dependent Role="TRANSPORTISTA">
+        <PropertyRef Name="ID_VEHICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FeriaDBcontext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" />
+    <EntitySet Name="CANTON" EntityType="Self.CANTON" />
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+    <EntitySet Name="DISTRITO" EntityType="Self.DISTRITO" />
+    <EntitySet Name="FACTURACION" EntityType="Self.FACTURACION" />
+    <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
+    <EntitySet Name="PROVINCIA" EntityType="Self.PROVINCIA" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TIPO_PAGO" EntityType="Self.TIPO_PAGO" />
+    <EntitySet Name="TIPO_VEHICULO" EntityType="Self.TIPO_VEHICULO" />
+    <EntitySet Name="TRANSPORTISTA" EntityType="Self.TRANSPORTISTA" />
+    <EntitySet Name="VEHICULO" EntityType="Self.VEHICULO" />
+    <EntitySet Name="VENDEDOR" EntityType="Self.VENDEDOR" />
+    <AssociationSet Name="FK_CANTON_PROVINCIA" Association="Self.FK_CANTON_PROVINCIA">
+      <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+      <End Role="CANTON" EntitySet="CANTON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DISTRITO_CANTON" Association="Self.FK_DISTRITO_CANTON">
+      <End Role="CANTON" EntitySet="CANTON" />
+      <End Role="DISTRITO" EntitySet="DISTRITO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTE" Association="Self.FK_CLIENTE">
+      <End Role="DISTRITO" EntitySet="DISTRITO" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FACTURACION2" Association="Self.FK_FACTURACION2">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="FACTURACION" EntitySet="FACTURACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DISTRITO_PROVINCIA" Association="Self.FK_DISTRITO_PROVINCIA">
+      <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+      <End Role="DISTRITO" EntitySet="DISTRITO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSPORTISTA1" Association="Self.FK_TRANSPORTISTA1">
+      <End Role="DISTRITO" EntitySet="DISTRITO" />
+      <End Role="TRANSPORTISTA" EntitySet="TRANSPORTISTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VENDEDOR2" Association="Self.FK_VENDEDOR2">
+      <End Role="DISTRITO" EntitySet="DISTRITO" />
+      <End Role="VENDEDOR" EntitySet="VENDEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FACTURACION" Association="Self.FK_FACTURACION">
+      <End Role="VENDEDOR" EntitySet="VENDEDOR" />
+      <End Role="FACTURACION" EntitySet="FACTURACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FACTURACION3" Association="Self.FK_FACTURACION3">
+      <End Role="TRANSPORTISTA" EntitySet="TRANSPORTISTA" />
+      <End Role="FACTURACION" EntitySet="FACTURACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FACTURACION4" Association="Self.FK_FACTURACION4">
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+      <End Role="FACTURACION" EntitySet="FACTURACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FACTURACION5" Association="Self.FK_FACTURACION5">
+      <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
+      <End Role="FACTURACION" EntitySet="FACTURACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUCTO" Association="Self.FK_PRODUCTO">
+      <End Role="VENDEDOR" EntitySet="VENDEDOR" />
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VENDEDOR1" Association="Self.FK_VENDEDOR1">
+      <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
+      <End Role="VENDEDOR" EntitySet="VENDEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEHICULO" Association="Self.FK_VEHICULO">
+      <End Role="TIPO_VEHICULO" EntitySet="TIPO_VEHICULO" />
+      <End Role="VEHICULO" EntitySet="VEHICULO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSPORTISTA2" Association="Self.FK_TRANSPORTISTA2">
+      <End Role="VEHICULO" EntitySet="VEHICULO" />
+      <End Role="TRANSPORTISTA" EntitySet="TRANSPORTISTA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

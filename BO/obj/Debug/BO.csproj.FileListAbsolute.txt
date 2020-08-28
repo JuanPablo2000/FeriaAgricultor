@@ -1,0 +1,12 @@
+C:\Users\PC\Desktop\Proyecto\BO\bin\Debug\BO.dll
+C:\Users\PC\Desktop\Proyecto\BO\bin\Debug\BO.pdb
+C:\Users\PC\Desktop\Proyecto\BO\obj\Debug\BO.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\Proyecto\BO\obj\Debug\BO.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\Proyecto\BO\obj\Debug\BO.dll
+C:\Users\PC\Desktop\Proyecto\BO\obj\Debug\BO.pdb
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BO\bin\Debug\BO.dll
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BO\bin\Debug\BO.pdb
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BO\obj\Debug\BO.csprojAssemblyReference.cache
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BO\obj\Debug\BO.csproj.CoreCompileInputs.cache
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BO\obj\Debug\BO.dll
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BO\obj\Debug\BO.pdb

@@ -1,0 +1,28 @@
+C:\Users\PC\Desktop\Proyecto\BLL\bin\Debug\BLL.dll
+C:\Users\PC\Desktop\Proyecto\BLL\bin\Debug\BLL.pdb
+C:\Users\PC\Desktop\Proyecto\BLL\bin\Debug\BO.dll
+C:\Users\PC\Desktop\Proyecto\BLL\bin\Debug\BO.pdb
+C:\Users\PC\Desktop\Proyecto\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\Proyecto\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\Proyecto\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\PC\Desktop\Proyecto\BLL\obj\Debug\BLL.dll
+C:\Users\PC\Desktop\Proyecto\BLL\obj\Debug\BLL.pdb
+C:\Users\PC\Desktop\Proyecto\BLL\bin\Debug\DAL.dll
+C:\Users\PC\Desktop\Proyecto\BLL\bin\Debug\EntityFramework.dll
+C:\Users\PC\Desktop\Proyecto\BLL\bin\Debug\DAL.pdb
+C:\Users\PC\Desktop\Proyecto\BLL\bin\Debug\DAL.dll.config
+C:\Users\PC\Desktop\Proyecto\BLL\bin\Debug\EntityFramework.xml
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\bin\Debug\BLL.dll
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\bin\Debug\BLL.pdb
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\bin\Debug\BO.dll
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\bin\Debug\DAL.dll
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\bin\Debug\EntityFramework.dll
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\bin\Debug\BO.pdb
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\bin\Debug\DAL.pdb
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\bin\Debug\DAL.dll.config
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\bin\Debug\EntityFramework.xml
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\obj\Debug\BLL.dll
+C:\Users\jbren\Downloads\Proyecto (2)\Proyecto\BLL\obj\Debug\BLL.pdb

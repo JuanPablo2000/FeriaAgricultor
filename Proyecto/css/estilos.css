@@ -1,0 +1,57 @@
+﻿body {
+   background-image: url(../images/form-wizard-bg.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+}
+.formulario {
+    background: rgba(0,-0,-0,-.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(31,28, 28);
+    color: black;
+}
+
+.form-control {
+    background-color: rgba(0,-0,-0,-.5);
+    border-style: none;
+    transition: 0.5s ease-in;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control:focus {
+        background: none;
+        outline: none;
+        box-shadow: none;
+ }
+
+.ingresar {
+    background: #222A3F;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700 !important;
+    color: white;
+    box-shadow: 0 0 10px rgb(31,28, 28);
+    transition: 0.5s ease-in;
+}
+.ingresar:hover {
+  color:black;
+}
+.registrar {
+    color: black;
+    text-decoration-style: none;
+    text-decoration-line: none;
+    font-weight: 700 !important;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0,-0,0,-.5);
+    box-shadow: 0 0 10px rgb(31,28, 28);
+}
+    .registrar:hover {
+        color:black;
+        text-decoration-style: none;
+        text-decoration-line: none;
+        cursor: pointer;
+    }
